@@ -1,9 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 RIVER_TILE_COUNT = 12
 BASE_TILE_COUNT = 72
 
-class Player(models.User):
+class Player(User):
     icon = models.ImageField()
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0) 
