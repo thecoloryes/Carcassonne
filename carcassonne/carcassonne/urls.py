@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from scorer import views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('game/<game_id>', views.game),
     path('game/<game_id>/turn', views.turn),
     path('game/<game_id>/submit_turn', views.submit_turn),
+    path('', views.home),
+    path('.*', RedirectView.as_view(url='/')),
 ]

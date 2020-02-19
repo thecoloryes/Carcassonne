@@ -15,3 +15,6 @@ def turn(request, game_id):
 
 def submit_turn(request, game_id):
     pass
+
+def home(request):
+    pass
