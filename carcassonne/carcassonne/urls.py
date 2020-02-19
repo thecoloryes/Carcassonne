@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('players/<username>', views.player),
     path('game/new', views.new_game),
-    path('game/<id>', views.game),
-    path('game/<id>/turn', views.turn),
-    path('game/<id>/submit_turn', views.submit_turn),
+    path('game/<game_id>', views.game),
+    path('game/<game_id>/turn', views.turn),
+    path('game/<game_id>/submit_turn', views.submit_turn),
 ]
