@@ -3,7 +3,7 @@ from django.db import models
 RIVER_TILE_COUNT = 12
 BASE_TILE_COUNT = 72
 
-class Player(models.Model):
+class Player(models.User):
     icon = models.ImageField()
     wins = models.IntegerField(default=0)
     losses = models.IntegerField(default=0) 
