@@ -34,20 +34,20 @@ class Feature(models.Model):
     size = models.IntegerField(default=0)
     is_completed = models.BooleanField(default=False)
 
-    def score():
+    def score(self):
         raise NotImplementedError
 
 class Road(Feature):
-    def score():
-        return size
+    def score(self):
+        return self.size
 
 class City(Feature):
     coats_of_arms = models.IntegerField(default=0)
 
-    def score():
-        factor = 2 if is_completed else 1
-        return size * factor + coats * factor
+    def score(self):
+        factor = 2 if self.is_completed else 1
+        return self.size * factor + self.coats_of_arms * factor
 
 class Monastery(Feature):
-    def score():
-        return size
+    def score(self):
+        return self.size
