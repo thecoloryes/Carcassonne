@@ -13,7 +13,7 @@ def new_game(request):
 def game(request, game_id):
     context = {
         'game': Game.objects.get(id = game_id),
-        'num_features': Feature.objects.filter(game__id = game_id).
+        'num_features': Feature.objects.filter(game__id = game_id),
         'roads': Road.objects.filter(game__id = game_id),
         'cities': City.objects.filter(game__id = game_id),
         'monasteries': Monastery.objects.filter(game__id = game_id),
