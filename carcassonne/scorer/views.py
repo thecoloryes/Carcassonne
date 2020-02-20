@@ -28,3 +28,15 @@ def submit_turn(request, game_id):
 
 def home(request):
     return render(request, 'home.html', {})
+
+def players(request):
+    context = {
+        'players': Player.objects.all(),
+    }
+    return render(request, 'players.html', context)
+
+def games(request):
+    context = {
+        'games': Game.objects.all(),
+    }
+    return render(request, 'games.html', context)

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from scorer import views
 from django.views.generic.base import RedirectView
 from django.conf import settings
@@ -22,12 +22,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('players', views.players),
     path('players/<username>', views.player),
     path('game/new', views.new_game),
     path('game/<game_id>', views.game),
     path('game/<game_id>/turn', views.turn),
     path('game/<game_id>/submit_turn', views.submit_turn),
+    path('games', views.games),
     path('', views.home),
-    path('.*', RedirectView.as_view(url='/')),
+    re_path(r'^.*$', RedirectView.as_view(url='/')),
 ] + static(settings.MEDIA_URL,
     document_root = settings.MEDIA_ROOT)
