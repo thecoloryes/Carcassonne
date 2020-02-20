@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Game #{{ game.id }}</h1>
+<h2>{{ num_features }} Features in This Game</h2>
+<ul>
+  {% for road in roads %}
+    <li>{{ road.player.username }}'s road worth {{ road.score }} points</li>
+  {% endfor %}
+  {% for city in cities %}
+    <li>{{ city.player.username }}'s city worth {{ city.score }} points</li>
+  {% endfor %}
+  {% for monastery in monasteries %}
+    <li>{{ monastery.player.username }}'s monastery worth {{ monastery.score }} points</li>
+  {% endfor %}
+</ul>
+
+{% endblock%}

@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from scorer import views
+from django.views.generic.base import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('players/<username>', views.player),
+    path('game/new', views.new_game),
+    path('game/<game_id>', views.game),
+    path('game/<game_id>/turn', views.turn),
+    path('game/<game_id>/submit_turn', views.submit_turn),
+    path('', views.home),
+    path('.*', RedirectView.as_view(url='/')),
+] + static(settings.MEDIA_URL,
+    document_root = settings.MEDIA_ROOT)

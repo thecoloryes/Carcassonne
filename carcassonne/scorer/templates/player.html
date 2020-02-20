@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {% if player.icon %}<img src="{{ player.icon.url }}" height="100" />{% endif %}{{ player.username }}</h1>
+<p>{{ player.wins }} wins</p>
+<p>{{ player.losses }} losses</p>
+{% endblock%}
