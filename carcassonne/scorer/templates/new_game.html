@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
-{% block content %}
 
+{% block content %}
+  <h1>New Game</h1>
+  <form method="post" action="/games/create" method="post" class="form">
+    {% csrf_token %}
+    {{ form }}
+    <br>
+    <button type="submit" class="btn btn-success">Start Game</button>
+  </form>
 {% endblock%}

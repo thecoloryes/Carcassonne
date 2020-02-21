@@ -1,14 +1,21 @@
 from django.shortcuts import render
+from django.views.generic import FormView
 from .models import *
+from .forms import *
+
+class PlayerFormView(FormView):
+    template_name = "new_player.html"
+    form_class = PlayerForm
+
+class GameFormView(FormView):
+    template_name = "new_game.html"
+    form_class = GameForm
 
 def player(request, username):
     context = {
         'player': Player.objects.get(username = username),
     }
     return render(request, 'player.html', context)
-
-def new_game(request):
-    return render(request, 'new_game.html', {})
 
 def game(request, game_id):
     context = {

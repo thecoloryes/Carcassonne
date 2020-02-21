@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('players', views.players),
     path('players/<username>', views.player),
-    path('game/new', views.new_game),
+    path('game/new', views.GameFormView.as_view()),
     path('game/<game_id>', views.game),
     path('game/<game_id>/turn', views.turn),
     path('game/<game_id>/submit_turn', views.submit_turn),
